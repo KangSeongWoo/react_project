@@ -1,15 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import { Container,Row, Col } from 'react-bootstrap/';
+import React from 'react';
+import Area from './Area'
 
 function App() {
+
+  const style = {
+    backgroundColor : 'black',
+    hieght : '20000px'
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-      </header>
+    <div style={style}>
+     <Area />
     </div>
   );
 }
