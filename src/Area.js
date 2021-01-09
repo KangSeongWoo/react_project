@@ -1,9 +1,9 @@
 import { Container,Row, Col } from 'react-bootstrap/';
 import React from 'react';
-import Products from './pages/cart/Cart'
-import Cart from './pages/products/Products'
+import Cart from './pages/cart/Cart'
+import Products from './pages/products/Products'
 
-function App() {
+const Area = () => {
 
   const style = {
     backgroundColor : 'grey',
@@ -30,4 +30,4 @@ function App() {
   );
 }
 
-export default App;
+export default Area;

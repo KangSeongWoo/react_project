@@ -2,8 +2,7 @@ import { Container,Row, Col } from 'react-bootstrap/';
 import React from 'react';
 import Area from './Area'
 
-function App() {
-
+const App = () => {
   const style = {
     backgroundColor : 'black',
     hieght : '20000px'
