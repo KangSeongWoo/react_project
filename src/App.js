@@ -1,16 +1,17 @@
 import { Container,Row, Col } from 'react-bootstrap/';
 import React from 'react';
-import Area from './Area'
+import { BrowserRouter as Router } from 'react-router-dom';
+import Body from './layout/Body'
+import Header from './layout/Header'
 
 const App = () => {
-  const style = {
-    backgroundColor : 'black',
-    hieght : '20000px'
-  }
 
   return (
-    <div style={style}>
-     <Area />
+    <div>
+      <Router>
+        <Header />
+        <Body/>
+      </Router>
     </div>
   );
 }
