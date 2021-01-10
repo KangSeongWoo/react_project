@@ -1,4 +1,5 @@
 import React from 'react';
+import { Container, Row, Col, Badge } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap/';
 
@@ -15,17 +16,29 @@ const Header = () => {
 
   return (
     <div style={style}>
-      여기는 헤더 입니다.
-      <Button>
-        <Link to="/Products">
-          상품목록
-        </Link>
-      </Button>
-      <Button>
-        <Link to="/Cart">
-          장바구니
-        </Link>
-      </Button>
+      <Container>
+        <Row>
+          <Col>
+            <h1>
+              <Badge variant="secondary">클래스 101 프론트엔트 개발자 과제</Badge>
+            </h1>
+          </Col>
+          <Col>
+            <Row style={{margin : '10px'}}>
+              <Button variant="outline-primary">
+                <Link to="/Products">
+                  상품목록
+                </Link>
+              </Button>
+              <Button variant="outline-primary">
+                <Link to="/Cart">
+                  장바구니
+                </Link>
+              </Button>
+            </Row>
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 }

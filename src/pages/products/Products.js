@@ -1,9 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-
-import { Card, Pagination, Button, CardDeck } from 'react-bootstrap'
-import { Container, Row, Col } from 'react-bootstrap'
-
+import { Card, Pagination, Button, CardDeck, ListGroup } from 'react-bootstrap'
 import { productItems } from '../../data/productItems'
 
 const Products = ({ bucket, setBucket }) => {
@@ -16,6 +12,7 @@ const Products = ({ bucket, setBucket }) => {
     return b["score"] - a["score"];
   });
   
+  // 화면에 노출될 리스트
   const [list, setList] = React.useState(productItems.slice(0,5));
   
   // Pagenation
@@ -79,18 +76,27 @@ const Products = ({ bucket, setBucket }) => {
     setList(productItems.slice((number-1)*numByPage,(number-1)*numByPage + numByPage))
   };
 
-  return (
-    <div style = {{margin : '10px'}}>
-      <CardDeck>
-      {
-        list.map(productItem => (
-          <MakeList productItem = {productItem}/>
-        ))
-      }
-      </CardDeck>
-      <Pagination  style = {{marginTop : '20px'}}>{items}</Pagination>
-    </div>
-  );
+
+  if(productItems.length < 0){
+    return (
+      <ListGroup>
+        <ListGroup.Item>구매 가능한 상품이 없습니다.</ListGroup.Item>
+      </ListGroup>
+    )
+  }else{
+    return (
+      <div style = {{margin : '10px'}}>
+        <CardDeck>
+        {
+          list.map(productItem => (
+            <MakeList productItem = {productItem}/>
+          ))
+        }
+        </CardDeck>
+        <Pagination  style = {{marginTop : '20px'}}>{items}</Pagination>
+      </div>
+    );
+  }
 }
 
 export default Products;

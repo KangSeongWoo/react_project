@@ -1,7 +1,5 @@
-import { Container,Row, Col } from 'react-bootstrap/';
 import React from 'react';
-import { Route } from 'react-router-dom';
-import Main from '../pages/Main'
+import { Route, Redirect } from 'react-router-dom';
 import Cart from '../pages/cart/Cart'
 import Products from '../pages/products/Products'
 
@@ -20,10 +18,12 @@ const Body = () => {
 
   return (
     <div style={style}>
-      {/* 메인 */}
-      <Route exact path='/'render={(props) =>
-        <Main routeProps={props} />
-      } />
+      {/* http://localhost:3001/로 진입시 바로 Products 로 이동 */}
+      <Redirect
+        exact
+        from="/"
+        to="/Products"
+      />
       {/* 상품목록 */}
       <Route exact path='/Products'render={(props) =>
         <Products routeProps={props} bucket = {bucket} setBucket = {setBucket}/>
